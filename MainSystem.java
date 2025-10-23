@@ -96,7 +96,7 @@ public class MainSystem {
 
         Train t = trains.get(no);
         if (t == null) {
-            System.out.println("❌ Train not found!");
+            System.out.println(" Train not found!");
             return;
         }
 
@@ -104,9 +104,9 @@ public class MainSystem {
             t.seatsAvailable--;
             Booking b = new Booking(name, no, t.ticketPrice);
             bookings.add(b);
-            System.out.println("✅ Ticket booked successfully for " + t.trainName);
+            System.out.println(" Ticket booked successfully for " + t.trainName);
         } else {
-            System.out.println("❌ No seats available!");
+            System.out.println(" No seats available!");
         }
     }
 
@@ -123,13 +123,13 @@ public class MainSystem {
                 if (t != null) t.seatsAvailable++;
                 it.remove();
                 found = true;
-                System.out.println("✅ Booking cancelled successfully.");
+                System.out.println("Booking cancelled successfully.");
                 break;
             }
         }
 
         if (!found) {
-            System.out.println("❌ No booking found for that name.");
+            System.out.println(" No booking found for that name.");
         }
     }
 
