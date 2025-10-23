@@ -108,7 +108,7 @@ public class SmartFeatures {
 
         Train t = trains.get(no);
         if (t == null) {
-            System.out.println("❌ Train not found!");
+            System.out.println("Train not found!");
             return;
         }
 
@@ -117,8 +117,8 @@ public class SmartFeatures {
             t.seatsAvailable--;
             String pnr = "PNR" + (1000 + bookings.size() + 1);
             bookings.add(new Booking(name, no, pnr, price));
-            System.out.println("✅ Ticket booked successfully! PNR: " + pnr);
-        } else System.out.println("❌ No seats available!");
+            System.out.println("Ticket booked successfully! PNR: " + pnr);
+        } else System.out.println("No seats available!");
     }
 
     static void cancelTicket() {
@@ -132,12 +132,12 @@ public class SmartFeatures {
                 Train t = trains.get(b.trainNo);
                 if (t != null) t.seatsAvailable++;
                 it.remove();
-                System.out.println("✅ Booking cancelled successfully!");
+                System.out.println("Booking cancelled successfully!");
                 found = true;
                 break;
             }
         }
-        if (!found) System.out.println("❌ Invalid PNR!");
+        if (!found) System.out.println("Invalid PNR!");
     }
 
     static void viewBookings() {
@@ -159,13 +159,13 @@ public class SmartFeatures {
     }
 
     static void predictAvailability() {
-        System.out.println("🔮 Predicting seat availability trend...");
+        System.out.println("Predicting seat availability trend...");
         for (Train t : trains.values()) {
             String trend = (t.seatsAvailable < 15)
-                    ? "⚠️ High demand, seats running out!"
+                    ? " High demand, seats running out!"
                     : (t.seatsAvailable < 35)
-                    ? "📈 Moderate demand."
-                    : "✅ Seats available comfortably.";
+                    ? " Moderate demand."
+                    : "Seats available comfortably.";
             System.out.printf("%s - %s%n", t.trainName, trend);
         }
     }
@@ -176,9 +176,9 @@ public class SmartFeatures {
                 fw.write("PNR: " + b.pnr + " | Passenger: " + b.passengerName +
                          " | Train No: " + b.trainNo + " | Paid: ₹" + b.paidAmount + "\n");
             }
-            System.out.println("📂 Bookings exported successfully to 'bookings.txt'");
+            System.out.println("Bookings exported successfully to 'bookings.txt'");
         } catch (IOException e) {
-            System.out.println("❌ Error exporting bookings!");
+            System.out.println(" Error exporting bookings!");
         }
     }
 }
